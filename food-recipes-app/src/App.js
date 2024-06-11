@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Search from './components/Search';
+import RecipeList from './components/RecipeList';
+import './App.css'; 
 
-function App() {
+const App = () => {
+  const [recipes, setRecipes] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Food Recipes App</h1>
+      <Search setRecipes={setRecipes} />
+      <RecipeList recipes={recipes} />
+
+      <p>Powered by Spoonacular</p>
+      <a href="https://spoonacular.com/food-api">API Documentation</a>
+      <a href="https://spoonacular.com/food-api/console">API Console</a>
+      <a href="https://github.com/spoonacular/food-recipes-api">GitHub</a> 
+
     </div>
   );
-}
+};
 
 export default App;
